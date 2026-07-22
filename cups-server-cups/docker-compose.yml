@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      # Format: <app-id>_<service-name>_1
+      APP_HOST: cups-server-cups_server_1
+      APP_PORT: 631
+
+  server:
+    image: anujdatar/cups:latest
+    restart: unless-stopped
+    ports:
+      - "631:631"
+    devices:
+      # Pass through the whole USB bus so any connected printer is detected
+      - /dev/bus/usb:/dev/bus/usb
+    environment:
+      CUPSADMIN: admin
+      CUPSPASSWORD: password
+      TZ: America/New_York
+    volumes:
+      # Persist CUPS configuration and added printers across restarts
+      - ${APP_DATA_DIR}/data/cups:/etc/cups

@@ -1,0 +1,39 @@
+manifestVersion: 1
+id: cups-server-cups
+name: CUPS
+tagline: Share USB printers over your network
+icon: https://raw.githubusercontent.com/OpenPrinting/cups/master/desktop/cups.png
+category: Networking
+version: "latest"
+port: 631
+description: >-
+  CUPS (Common UNIX Printing System) is a print server that lets you share
+  USB printers over your network.
+
+
+  Plug a USB printer into your Umbrel device and CUPS will make it available
+  to all the computers, phones, and tablets on your network. Built primarily
+  for headless servers like the Raspberry Pi, it also works great on amd64
+  machines.
+
+
+  After installing, open the app and log in with the admin credentials below
+  to add and manage your printers.
+
+
+  Note: This app needs access to your device's USB bus to detect printers.
+
+developer: Anuj Datar
+website: https://github.com/anujdatar/cups-docker
+submitter: Community
+submission: https://github.com/anujdatar/cups-docker
+repo: https://github.com/anujdatar/cups-docker
+support: https://github.com/anujdatar/cups-docker/issues
+gallery:
+  - https://i.imgur.com/yyVG0Jb.jpeg
+releaseNotes: >-
+  Initial packaging of anujdatar/cups for Umbrel.
+dependencies: []
+path: ""
+defaultUsername: "admin"
+defaultPassword: "password"
