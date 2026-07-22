@@ -2,7 +2,7 @@ manifestVersion: 1
 id: cups-server-cups
 name: CUPS
 tagline: Share USB printers over your network
-icon: https://raw.githubusercontent.com/OpenPrinting/cups/master/desktop/cups.png
+icon: https://raw.githubusercontent.com/OpenPrinting/cups/master/desktop/cups.svg
 category: Networking
 version: "latest"
 port: 631
