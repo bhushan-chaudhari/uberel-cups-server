@@ -19,7 +19,7 @@ services:
     environment:
       CUPSADMIN: admin
       CUPSPASSWORD: password
-      TZ: America/New_York
+      TZ: Asia/Kolkata
     volumes:
       # Persist CUPS configuration and added printers across restarts
       - ${APP_DATA_DIR}/data/cups:/etc/cups
