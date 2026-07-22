@@ -9,12 +9,13 @@ services:
 
   server:
     image: anujdatar/cups:latest
-    restart: unless-stopped
+    restart: on-failure
+    # Privileged + /dev mount lets CUPS see USB printers connected to the host.
+    # This avoids install failures on hosts where /dev/bus/usb doesn't exist yet
+    # (a hardcoded `devices:` path aborts container creation if it's missing).
+    privileged: true
     ports:
       - "631:631"
-    devices:
-      # Pass through the whole USB bus so any connected printer is detected
-      - /dev/bus/usb:/dev/bus/usb
     environment:
       CUPSADMIN: admin
       CUPSPASSWORD: password
@@ -22,3 +23,5 @@ services:
     volumes:
       # Persist CUPS configuration and added printers across restarts
       - ${APP_DATA_DIR}/data/cups:/etc/cups
+      # Access USB printers connected to the host
+      - /dev/bus/usb:/dev/bus/usb
